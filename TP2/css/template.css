@@ -1,0 +1,12 @@
+.menu{
+    color: #ffffff;
+}
+.btn-menu{
+    width: 85%;
+    margin-left: 25%;
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+    margin-bottom: 2px;
+}
+.btn-menu:hover{
+    background-color: #721c24;
+}
