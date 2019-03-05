@@ -24,8 +24,10 @@ include "templateAdmin.html";
     <h1 class="h1 text-center">Gestion des Clients</h1>
     <p class="h5">Bienvenu dans votre espace monsieur <b><?= $prenom . " " .$nom ;?></b></p>
     <br>
-    <p>Liste des clients</p>
-
+    <p class="h3" style="margin-bottom: -25px">Liste des clients</p>
+    <form class="form-inline" action="inscriptionClient.php" style="margin-left: 87.5%; margin-bottom: 2px">
+        <button class="btn btn-success my-2 my-sm-0" type="submit">+Nouveau</button>
+    </form>
     <table class="table">
         <thead class="thead-dark">
         <tr>
