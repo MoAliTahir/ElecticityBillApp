@@ -6,7 +6,7 @@ if(isset($_SESSION["id_user"])){
     $prenom = $_SESSION['prenom'];
 
     require_once "../db.php";
-    $sql = "SELECT id_facture, consommation, valide, date_enreg, date_facture, prix, nom, prenom FROM facture, user WHERE id_user = id_client and valide = 0";
+    $sql = "SELECT id_consom, compteur, date_enreg, mois, nom, prenom FROM consommation, user WHERE id_user = id_client and valide = 0";
 
 }else
 {
@@ -24,28 +24,31 @@ include "templateAdmin.html";
     <h1 class="h1 text-center">Generation des Factures</h1>
     <p class="h5">Bienvenu dans votre espace monsieur <b><?= $prenom . " " .$nom ;?></b></p>
     <br>
-    <p>Liste des factures</p>
+    <p class="h3">Liste des consommations</p>
     <table class="table">
         <thead class="thead-dark">
-        <tr>
+        <tr class="text-center">
             <th scope="col">Nom</th>
             <th scope="col">Prenom</th>
-            <th scope="col">Consommation</th>
-            <th scope="col">Valide?</th>
+            <th scope="col">Compteur</th>
             <th scope="col">Date d'enregistrement</th>
-            <th scope="col">Prix</th>
+            <th scope="col">Mois</th>
+            <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
         <?php
-        foreach ($db->query($sql) as $factures) : ?>
-            <tr>
-                <td><?= $factures['nom'] ?></td>
-                <td><?= $factures['prenom'] ?></td>
-                <td><?= $factures['consommation'] ?></td>
-                <td><?= $factures['valide'] ?></td>
-                <td><?= $factures['date_enreg'] ?></td>
-                <td><?= $factures['prix'] ?></td>
+        foreach ($db->query($sql) as $consommations) : ?>
+            <tr class="text-center">
+                <td><?= $consommations['nom'] ?></td>
+                <td><?= $consommations['prenom'] ?></td>
+                <td><?= $consommations['compteur'] ?></td>
+                <td><?= $consommations['date_enreg'] ?></td>
+                <td><?= $consommations['mois'] ?></td>
+                <td class="text-center">
+                    <a href="adminModifieConsommation.php?id=<?= $consommations['id_consom'] ?>"><button class="btn btn-primary">Modifier</button></a>
+                    <a href="adminModifieConsommation.php?generer=<?= $consommations['id_consom'] ?>"><button class="btn btn-success">Generer</button></a>
+                </td>
             </tr>
         <?php
         endforeach;

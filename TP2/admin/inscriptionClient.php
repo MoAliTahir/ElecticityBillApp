@@ -45,6 +45,7 @@ if(isset($_SESSION["id_user"])){
 
     }
 
+    //Modification d'un client
     if (isset($_GET['id']))
     {
         $id_client = $_GET['id'];
