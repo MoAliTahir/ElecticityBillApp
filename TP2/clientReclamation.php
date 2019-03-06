@@ -22,7 +22,7 @@ include "template.html";
         background-color: #721c24;
     }
 </style>
-                <div class="main col-8" style="padding: 20px 50px 20px 50px">
+                <div class="main col-8" style="padding: 20px 40px 20px 50px; margin-left: 33%">
                     <h1 class="h1 text-center">Reclamations</h1>
                     <h3 class="h3">Messages réçus</h3>
                     <div style="border: 1px solid red; height: 300px; overflow-y: scroll; padding: 20px">

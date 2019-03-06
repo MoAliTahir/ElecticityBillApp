@@ -22,7 +22,7 @@ include "template.html";
         background-color: #721c24;
     }
 </style>
-                <div class="main col-8" style="padding: 20px 50px 20px 50px">
+                <div class="main col-8" style="padding: 20px 40px 20px 50px; margin-left: 33%">
                     <h1 class="h1 text-center">A propos</h1>
                     <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
                         Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme

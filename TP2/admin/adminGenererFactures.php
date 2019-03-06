@@ -20,7 +20,7 @@ include "templateAdmin.html";
         background-color: #721c24;
     }
 </style>
-<div class="main col-8" style="padding: 20px 50px 20px 50px">
+<div class="main col-8" style="padding: 20px 40px 20px 50px; margin-left: 33%">
     <h1 class="h1 text-center">Generation des Factures</h1>
     <p class="h5">Bienvenu dans votre espace monsieur <b><?= $prenom . " " .$nom ;?></b></p>
     <br>
