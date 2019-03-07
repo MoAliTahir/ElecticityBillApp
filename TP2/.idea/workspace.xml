@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a54e800f-b6a4-4855-acf7-09ffd54c69c9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/admin/adminEnvoiReclamation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/adminVoirReclamations.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/adminGenererFactures.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/adminGenererFactures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/adminModifieConsommation.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/adminModifieConsommation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/inscriptionClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/inscriptionClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/templateAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/templateAdmin.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,37 +16,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/templateAdmin.html">
+        <entry file="file://$PROJECT_DIR$/admin/adminVoirReclamations.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="106" selection-start-line="26" selection-start-column="106" selection-end-line="26" selection-end-column="106" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/adminHomePage.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="77" selection-start-line="14" selection-start-column="77" selection-end-line="14" selection-end-column="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/adminGenererFactures.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="63" column="153" selection-start-line="63" selection-start-column="153" selection-end-line="63" selection-end-column="153" />
+            <state relative-caret-position="272">
+              <caret line="33" column="63" selection-start-line="33" selection-start-column="63" selection-end-line="33" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/adminModifieConsommation.php">
+        <entry file="file://$PROJECT_DIR$/admin/adminEnvoiReclamation.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="67" column="58" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
+              <caret line="121" column="69" selection-start-line="121" selection-start-column="69" selection-end-line="121" selection-end-column="69" />
+              <folding>
+                <element signature="n#style#0;n#button#1;n#div#4;n#form#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,12 +64,14 @@
         <option value="$PROJECT_DIR$/clientHomePage.php" />
         <option value="$PROJECT_DIR$/clientReclamation.php" />
         <option value="$PROJECT_DIR$/clientAPropos.php" />
-        <option value="$PROJECT_DIR$/admin/templateAdmin.html" />
         <option value="$PROJECT_DIR$/admin/adminHomePage.php" />
         <option value="$PROJECT_DIR$/admin/adminGestionClient.php" />
         <option value="$PROJECT_DIR$/admin/adminGenererFactures.php" />
         <option value="$PROJECT_DIR$/admin/inscriptionClient.php" />
         <option value="$PROJECT_DIR$/admin/adminModifieConsommation.php" />
+        <option value="$PROJECT_DIR$/admin/templateAdmin.html" />
+        <option value="$PROJECT_DIR$/admin/adminVoirReclamations.php" />
+        <option value="$PROJECT_DIR$/admin/adminEnvoiReclamation.php" />
       </list>
     </option>
   </component>
@@ -176,12 +163,12 @@
       <workItem from="1551828606301" duration="827000" />
       <workItem from="1551829450336" duration="10549000" />
       <workItem from="1551874572023" duration="11159000" />
-      <workItem from="1551913733667" duration="3192000" />
+      <workItem from="1551913733667" duration="8446000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58915000" />
+    <option name="totallyTimeSpent" value="64169000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -290,13 +277,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/templateAdmin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="106" selection-start-line="26" selection-start-column="106" selection-end-line="26" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/adminGenererFactures.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1071">
@@ -304,17 +284,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clientSaisirConsommation.php">
+    <entry file="file://$PROJECT_DIR$/admin/adminGestionClient.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="37" column="62" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
+        <state relative-caret-position="952">
+          <caret line="56" column="16" lean-forward="true" selection-start-line="56" selection-start-column="16" selection-end-line="56" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/adminGestionClient.php">
+    <entry file="file://$PROJECT_DIR$/admin/templateAdmin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="51" selection-end-column="17" />
+        <state relative-caret-position="357">
+          <caret line="33" column="50" selection-start-line="33" selection-start-column="50" selection-end-line="33" selection-end-column="50" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -325,17 +308,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/inscriptionClient.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/adminModifieConsommation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="67" column="58" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/inscriptionClient.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="101" column="14" lean-forward="true" selection-start-line="101" selection-start-column="14" selection-end-line="101" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientSaisirConsommation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="37" column="62" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/adminVoirReclamations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="33" column="63" selection-start-line="33" selection-start-column="63" selection-end-line="33" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/adminEnvoiReclamation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="121" column="69" selection-start-line="121" selection-start-column="69" selection-end-line="121" selection-end-column="69" />
+          <folding>
+            <element signature="n#style#0;n#button#1;n#div#4;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
