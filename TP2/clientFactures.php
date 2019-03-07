@@ -9,6 +9,9 @@ session_start();
 if(isset($_SESSION["id_user"])){
     $nom = $_SESSION['nom'];
     $prenom = $_SESSION['prenom'];
+
+    require_once "db.php";
+    $sql = "SELECT num_facture, consommation, prixHT, facture.date_enreg, mois FROM facture, consommation WHERE facture.id_consom = consommation.id_consom AND id_client = ".$_SESSION['id_user'];
 }else
 {
     header("Location:index.php");
@@ -24,31 +27,37 @@ include "template.html";
 </style>
                 <div class="main col-8" style="padding: 20px 40px 20px 50px; margin-left: 33%">
                     <h1 class="h1 text-center">Liste de vos factures</h1>
-                    <p>Le Lorem Ipsum est simlement du faux texte employé dans la composition et la mise en page avant impression.
-                        Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme
-                        assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait
-                        que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en
-                        soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des
-                        passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte,
-                        comme Aldus PageMaker.</p><p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
-                        Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme
-                        assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait
-                        que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en
-                        soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des
-                        passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte,
-                        comme Aldus PageMaker.</p><p>Le Lorem Ipsum est simlement du faux texte employé dans la composition et la mise en page avant impression.
-                        Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme
-                        assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait
-                        que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en
-                        soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des
-                        passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte,
-                        comme Aldus PageMaker.</p><p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
-                        Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme
-                        assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait
-                        que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en
-                        soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des
-                        passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte,
-                        comme Aldus PageMaker.</p>
+                    <br>
+                    <p class="h3" style="margin-bottom: -25px">Liste des factures approuvées</p>
+                    <br><br>
+
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr class="text-center">
+                            <th scope="col">Num Compte</th>
+                            <th scope="col">Consommation</th>
+                            <th scope="col">Mois</th>
+                            <th scope="col">PrixHT</th>
+                            <th scope="col">PrixTTC</th>
+                            <th scope="col">Date Validation</th>
+                        </tr>
+                        </thead>
+                        <tbody style="padding: 20px 50px 20px 50px">
+                        <?php
+                        foreach ($db->query($sql) as $facture) : ?>
+                            <tr class="text-center">
+                                <td><?= $facture['num_facture'] ?></td>
+                                <td><?= $facture['consommation'] ?></td>
+                                <td><?= $facture['mois'] ?></td>
+                                <td><?= $facture['prixHT'] ?></td>
+                                <td><?= $facture['prixHT']*1.14 ?></td>
+                                <td><?= $facture['date_enreg'] ?></td>
+                            </tr>
+                        <?php
+                        endforeach;
+                        ?>
+                        </tbody>
+                    </table>
 
                 </div>
 
