@@ -28,7 +28,6 @@ if(isset($_SESSION["id_user"])){
 
 
         $data = [
-
             'login' => $identifiant,
             'password' => $motDePasse,
             'nom' => $nom,

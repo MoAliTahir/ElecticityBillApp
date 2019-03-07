@@ -37,9 +37,41 @@ if(isset($_SESSION["id_user"]))
     }
 
     //Génération de la facture
-    if (isset($_GET['generer']))
+    if (isset($_GET['generer']) AND isset($_GET['value']))
     {
         $id_consom = $_GET['generer'];
+        $valeur = $_GET['value'];
+        $requete = $db->prepare("SELECT * FROM consommation WHERE id_consom = ?");
+        $requete->execute(array($id_consom));
+        $consommation = $requete->fetch();
+        $i = $requete->rowCount();
+
+        if ($i > 0)
+        {
+            $requete1 = $db->query("SELECT login FROM user WHERE id_user =".$consommation['id_client']);
+            $num_facture = $requete1->fetch();
+
+            $requete2 = $db->prepare("INSERT INTO electricity.facture(num_facture, consommation, prixHT, date_enreg, id_consom) values(:numFacture, :consom, :prix, CURRENT_DATE(), :idConsom)");
+            if ($valeur <= 100)
+            {
+                $prix = $valeur*0.91;
+            }elseif ($valeur <= 200)
+            {
+                $prix = 91 + ($valeur-100)*1.01;
+            }else
+            {
+                $prix = 91 + 101 + ($valeur-200)*1.12;
+            }
+
+            if ($requete2->execute(["numFacture" => $num_facture['login'], "consom" => $valeur, "prix" => $prix, "idConsom" => $consommation['id_consom']]))
+            {
+                $db->query("UPDATE consommation SET valide = 1 WHERE id_consom=".$id_consom);
+                header("Location:adminGenererFactures.php");
+            }else
+                header("Location: adminHomePage.php");
+
+        }
+
     }
 
     //Recupération de la consommation choisie
@@ -90,7 +122,8 @@ include "templateAdmin.html";
         </div>
         <br>
         <div class="row">
-            <button type="reset" class="btn btn-secondary col-3">Annuler</button>
+            <a href="adminGenererFactures.php" class="btn btn-secondary col-3">Retour</a>
+
             <button type="submit" class="btn btn-primary col-3" style="margin-left: 75%; margin-top: -39px" name="enregistrer">Enregistrer</button>
         </div>
     </form>
