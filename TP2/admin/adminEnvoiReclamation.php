@@ -14,55 +14,16 @@ if(isset($_SESSION["id_user"])){
     $prenom = $_SESSION['prenom'];
 
     require_once "../db.php";
-/*
-    //Modification du client
-    if (isset($_POST['modifier'])) {
 
-        $id_client = $_POST['id_client'];
-        $identifiant = $_POST['identifiant'];
-        $nom = $_POST['nom'];
-        $prenom = $_POST['prenom'];
-        $motDePasse = $_POST['motDePasse'];
-
-        $sql = "UPDATE `user` SET login =:login, password =:password, nom = :nom, prenom = :prenom, status = 'client'  WHERE id_user =" . $id_client;
-        $update = $db->prepare($sql);
-
-
-        $data = [
-            'login' => $identifiant,
-            'password' => $motDePasse,
-            'nom' => $nom,
-            'prenom' => $prenom
-        ];
-
-        $update->execute($data);
-        header("Location:adminGestionClient.php");
-    }
-
-    //Ajout d'un nouveau client
-    if (isset($_POST['inscription']))
+    $succesMessage = "";
+    if (isset($_POST['envoyer']))
     {
-
+        $requete = $db->prepare("INSERT INTO reclamation (contenue, date_envoi, id_user, id_to) VALUES (:content, CURRENT_DATE , :from, :to)");
+        if ($requete->execute(["content" => $_POST['message'], "from" => $_SESSION['id_user'], "to" => $_POST['destinataire']]))
+            $succesMessage = "<p style='color: green'>Message envoyé avec succès</p>";
+        else
+            $succesMessage = "<p style='color: red'>Message non envoyé, une erreur s'est produite, veuillez ressayer</p>";
     }
-
-    //Modification d'un client
-    if (isset($_GET['id']))
-    {
-        $id_client = $_GET['id'];
-        $requete = $db->prepare("SELECT * FROM user WHERE id_user = ?");
-        $requete->execute(array($id_client));
-        $client = $requete->fetch();
-        $i = $requete->rowCount();
-    }
-    //Suppression du client selectionné
-    if (isset($_GET['supprimer'])) {
-        $id_client = $_GET['supprimer'] ;
-
-        $delete=$db->prepare('DELETE FROM `user` WHERE id_user= :id');
-        $delete->execute(array('id'=>$id_client));
-
-        header("Location:adminGestionClient.php");
-    }*/
 
 }else
 {
@@ -78,7 +39,7 @@ include "templateAdmin.html";
 </style>
 <div class="main col-8" style="padding: 20px 40px 20px 50px; margin-left: 33%">
     <h1 class="h1 text-center"><?php if (isset($_GET['id'])) echo "Envoi d'une réponse"; else echo "Nouveau message"; ?></h1>
-    <p class="h5">Bienvenu dans votre espace monsieur <b><?= $prenom . " " .$nom ;?></b></p>
+    <br><?= $succesMessage ?><br>
 
     <br>
 
@@ -119,7 +80,7 @@ include "templateAdmin.html";
         ?>
         <div class="form-group">
             <label for="message">Message</label>
-            <textarea name="message" id="message" class="form-control"></textarea>
+            <textarea name="message" id="message" class="form-control" required></textarea>
         </div>
         <br>
         <div class="row">
