@@ -41,7 +41,25 @@ if(isset($_SESSION["id_user"])){
     //Ajout d'un nouveau client
     if (isset($_POST['inscription']))
     {
+        $identifiant = $_POST['identifiant'];
+        $password = $_POST['motDePasse'];
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
 
+        $sql = "INSERT INTO user(login, password, nom, prenom, status) values(:login, md5(:password), :nom, :prenom, 'client')";
+
+        $requete = $db->prepare($sql);
+        $data = array(
+            "login" => $identifiant,
+            "password" => $password,
+            "nom" => $nom,
+            "prenom" => $prenom
+        );
+        if($requete->execute($data))
+        {
+            header("Location:adminGestionClient.php");
+        }
+        
     }
 
     //Modification d'un client
@@ -85,20 +103,20 @@ include "templateAdmin.html";
         <input type="hidden" name="id_client" value="<?php if (isset($i)) echo $client['id_user']; ?>">
         <div class="form-group">
             <label for="identifiant">Identifiant</label>
-            <input type="text" class="form-control" id="identifiant" aria-describedby="identifiantHelp" placeholder="CLxxxx" name="identifiant" value=<?php if(isset($i)) echo "\"".$client['login']."\" readonly" ; ?>>
+            <input type="text" class="form-control" id="identifiant" aria-describedby="identifiantHelp" placeholder="CLxxxx" required name="identifiant" value=<?php if(isset($i)) echo "\"".$client['login']."\" readonly" ; ?>>
             <small id="identifiantHelp" class="form-text text-muted">Cet identifiant doit etre unique et réprésente le numéro du compteur</small>
         </div>
         <div class="form-group">
             <label for="motDePasse">Mot de Passe</label>
-            <input type="password" class="form-control" id="motDePasse" name="motDePasse" placeholder="Mot de Passe" value="<?php if(isset($i)) echo $client['password']; ?>">
+            <input type="password" class="form-control" id="motDePasse" name="motDePasse" required placeholder="Mot de Passe" value="<?php if(isset($i)) echo $client['password']; ?>">
         </div>
         <div class="form-group">
             <label for="nom">Nom</label>
-            <input type="text" class="form-control" id="nom" placeholder="Nom" name="nom" value="<?php if(isset($i)) echo $client['nom']; ?>">
+            <input type="text" class="form-control" id="nom" required placeholder="Nom" name="nom" value="<?php if(isset($i)) echo $client['nom']; ?>">
         </div>
         <div class="form-group">
             <label for="prenom">Prénom</label>
-            <input type="text" class="form-control" id="prenom" placeholder="Prénom" name="prenom" value="<?php if(isset($i)) echo $client['prenom']; ?>">
+            <input type="text" class="form-control" id="prenom" required placeholder="Prénom" name="prenom" value="<?php if(isset($i)) echo $client['prenom']; ?>">
         </div>
         <br>
         <div class="row">
