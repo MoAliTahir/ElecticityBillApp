@@ -3,7 +3,7 @@ $erreurConnexion = "";
     if(isset($_POST["connexion"]))
     {
         require_once "db.php";
-        $requete = $db->prepare("SELECT * FROM user WHERE login=? and password=?");
+        $requete = $db->prepare("SELECT * FROM user WHERE login=? and password=md5(?)");
         $requete->execute(array($_POST['login'], $_POST['password']));
         $user = $requete->fetch();
 
