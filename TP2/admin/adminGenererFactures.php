@@ -6,7 +6,7 @@ if(isset($_SESSION["id_user"])){
     $prenom = $_SESSION['prenom'];
 
     require_once "../db.php";
-    $sql = "SELECT id_consom, compteur, date_enreg, mois, nom, prenom FROM consommation, user WHERE id_user = id_client and valide = 0";
+    $sql = "SELECT id_consom, compteur, annee, mois, nom, prenom FROM consommation, user WHERE id_user = id_client and valide = 0 and mois != 0";
     $requete = $db->query($sql);
 
 
@@ -34,8 +34,8 @@ include "templateAdmin.html";
             <th scope="col">Prenom</th>
             <th scope="col">Compteur</th>
             <th scope="col">Precedent</th>
-            <th scope="col">Date d'enregistrement</th>
             <th scope="col">Mois</th>
+            <th scope="col">Annee</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
@@ -55,8 +55,8 @@ include "templateAdmin.html";
                 <td><?= $consommations['prenom'] ?></td>
                 <td><?= $consommations['compteur'] ?></td>
                 <td><?= $valComptPrec ?></td>
-                <td><?= $consommations['date_enreg'] ?></td>
                 <td><?= $consommations['mois'] ?></td>
+                <td><?= $consommations['annee'] ?></td>
                 <td class="text-center">
                     <a href="adminModifieConsommation.php?id=<?= $consommations['id_consom']?>">
                         <button class="btn btn-primary">Modifier</button>

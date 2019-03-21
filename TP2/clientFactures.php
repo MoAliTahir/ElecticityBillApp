@@ -34,12 +34,13 @@ include "template.html";
                     <table class="table">
                         <thead class="thead-dark">
                         <tr class="text-center">
-                            <th scope="col">Num Compte</th>
+                            <th scope="col">Compte</th>
                             <th scope="col">Consommation</th>
                             <th scope="col">Mois</th>
                             <th scope="col">PrixHT</th>
                             <th scope="col">PrixTTC</th>
                             <th scope="col">Date Validation</th>
+                            <th scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody style="padding: 20px 50px 20px 50px">
@@ -52,6 +53,7 @@ include "template.html";
                                 <td><?= $facture['prixHT'] ?></td>
                                 <td><?= $facture['prixHT']*1.14 ?></td>
                                 <td><?= $facture['date_enreg'] ?></td>
+                                <td><a href=""><button class="btn btn-success my-2 my-sm-0">Télécharger</button></a></td>
                             </tr>
                         <?php
                         endforeach;

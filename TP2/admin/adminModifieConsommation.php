@@ -18,7 +18,7 @@ if(isset($_SESSION["id_user"]))
     {
         $id_consom = $_POST['id_consom'];
         $id_client = $_POST['id_client'];
-        $date_enreg = $_POST['date'];
+        $date_enreg = $_POST['annee'];
         $compteur = $_POST['compteur'];
         $mois = $_POST['mois'];
 
@@ -109,8 +109,8 @@ include "templateAdmin.html";
             <small id="identifiantHelp" class="form-text text-muted">Cet identifiant est unique pour chaque client</small>
         </div>
         <div class="form-group">
-            <label for="date">Date enregistrement</label>
-            <input type="date" class="form-control" readonly id="date" name="date" value="<?php if(isset($i)) echo $consommation['date_enreg']; ?>">
+            <label for="annee">Année</label>
+            <input type="number" class="form-control" readonly id="annee" name="annee" value="<?php if(isset($i)) echo $consommation['annee']; ?>">
         </div>
         <div class="form-group">
             <label for="compteur">Compteur</label>
