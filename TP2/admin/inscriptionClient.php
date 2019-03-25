@@ -71,15 +71,6 @@ if(isset($_SESSION["id_user"])){
         $client = $requete->fetch();
         $i = $requete->rowCount();
     }
-    //Suppression du client selectionné
-    if (isset($_GET['supprimer'])) {
-        $id_client = $_GET['supprimer'] ;
-
-        $delete=$db->prepare('DELETE FROM `user` WHERE id_user= :id');
-        $delete->execute(array('id'=>$id_client));
-
-        header("Location:adminGestionClient.php");
-    }
 
 }else
 {

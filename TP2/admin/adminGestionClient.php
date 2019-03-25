@@ -6,6 +6,15 @@ if(isset($_SESSION["id_user"])){
     $prenom = $_SESSION['prenom'];
 
     require_once "../db.php";
+    //Suppression du client selectionné
+    if (isset($_GET['supprimer'])) {
+        $id_client = $_GET['supprimer'] ;
+
+        $delete=$db->query("DELETE FROM user WHERE id_user= ".$id_client);
+
+        if (!$delete)
+            header("Location: adminHomePage.php");
+    }
     $sql = "SELECT * FROM user WHERE status = 'client'";
 
 }else
@@ -48,7 +57,7 @@ include "templateAdmin.html";
             <td><?= $clients['status'] ?></td>
             <td class="text-center">
                 <a href="inscriptionClient.php?id=<?= $clients['id_user'] ?>"><button class="btn btn-primary my-2 my-sm-0">Modifier</button></a>
-                <a href="inscriptionClient.php?supprimer=<?= $clients['id_user'] ?>"><button class="btn btn-danger my-2 my-sm-0">Supprimer</button></a>
+                <a href="adminGestionClient.php?supprimer=<?= $clients['id_user'] ?>"><button class="btn btn-danger my-2 my-sm-0">Supprimer</button></a>
             </td>
         </tr>
         <?php

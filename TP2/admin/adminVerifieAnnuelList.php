@@ -11,7 +11,6 @@ if(isset($_SESSION["id_user"])){
     $nom = $_SESSION['nom'];
     $prenom = $_SESSION['prenom'];
     require_once "../db.php";
-    $sql = "SELECT * FROM user WHERE status='client'";
 
     if(isset($_GET['an']))
     {
@@ -95,7 +94,12 @@ include "templateAdmin.html";
                             if (!empty($somme[$consommations['id_user']]))
                                 $valSomCompt = $somme[$consommations['id_user']];
                             else
-                                $valSomCompt = "-";
+                                $valSomCompt = "0";
+                            $diff = $consommations['compteur'] - $valSomCompt;
+
+                           if (abs($diff)>=500)
+                           {
+
                             ?>
                             <tr class="text-center">
                                 <td><?= $consommations['nom'] ?></td>
@@ -111,6 +115,8 @@ include "templateAdmin.html";
                                 </td>
                             </tr>
                             <?php
+                           }else
+                               continue;
                         }
                         ?>
                         </tbody>

@@ -53,7 +53,7 @@ include "template.html";
                                 <td><?= $facture['prixHT'] ?></td>
                                 <td><?= $facture['prixHT']*1.14 ?></td>
                                 <td><?= $facture['date_enreg'] ?></td>
-                                <td><a href=""><button class="btn btn-success my-2 my-sm-0">Télécharger</button></a></td>
+                                <td><a href="facture.php"><button class="btn btn-success my-2 my-sm-0">Télécharger</button></a></td>
                             </tr>
                         <?php
                         endforeach;
