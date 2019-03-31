@@ -15,7 +15,8 @@ body {
 }
 
 .logo {
-    width: 2.5cm;
+    border: 1px solid red;
+    size: 50px;
 }
 
 .document-type {

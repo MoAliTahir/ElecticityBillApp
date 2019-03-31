@@ -11,7 +11,7 @@ if(isset($_SESSION["id_user"])){
     $prenom = $_SESSION['prenom'];
 
     require_once "db.php";
-    $sql = "SELECT num_facture, consommation, prixHT, facture.date_enreg, mois FROM facture, consommation WHERE facture.id_consom = consommation.id_consom AND id_client = ".$_SESSION['id_user'];
+    $sql = "SELECT id_facture, num_facture, consommation, prixHT, facture.date_enreg, mois FROM facture, consommation WHERE facture.id_consom = consommation.id_consom AND id_client = ".$_SESSION['id_user'];
 }else
 {
     header("Location:index.php");
@@ -53,7 +53,7 @@ include "template.html";
                                 <td><?= $facture['prixHT'] ?></td>
                                 <td><?= $facture['prixHT']*1.14 ?></td>
                                 <td><?= $facture['date_enreg'] ?></td>
-                                <td><a href="facture.php"><button class="btn btn-success my-2 my-sm-0">Télécharger</button></a></td>
+                                <td><a href="facture.php?id=<?= $facture['id_facture'] ?>"><button class="btn btn-success my-2 my-sm-0">Télécharger</button></a></td>
                             </tr>
                         <?php
                         endforeach;
